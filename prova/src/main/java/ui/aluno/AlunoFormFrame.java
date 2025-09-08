@@ -30,7 +30,7 @@ public class AlunoFormFrame extends JFrame {
             a.setMatricula(tMatricula.getText().trim());
             a.setEmail(tEmail.getText().trim());
             a.setCurso(tCurso.getText().trim());
-            dao.salvar(a);  // persiste/merge sem try/catch
+            dao.salvar(a);
             tNome.setText(""); tMatricula.setText(""); tEmail.setText(""); tCurso.setText("");
             JOptionPane.showMessageDialog(this, "Salvo!");
         });

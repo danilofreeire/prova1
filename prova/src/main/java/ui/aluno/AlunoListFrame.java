@@ -77,7 +77,7 @@ public class AlunoListFrame extends JFrame {
             a.setMatricula(fm.getText().trim());
             a.setEmail(fe.getText().trim());
             a.setCurso(fc.getText().trim());
-            dao.salvar(a);  // merge porque id != null
+            dao.salvar(a);
             carregar();
         }
     }
