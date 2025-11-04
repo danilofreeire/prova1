@@ -1,7 +1,8 @@
-import ui.MainFrame;
+import javax.swing.SwingUtilities;
+import ui.auth.LoginFrame;
 
 public class Main {
     public static void main(String[] args) {
-        new MainFrame().setVisible(true);
+        SwingUtilities.invokeLater(() -> new LoginFrame().setVisible(true));
     }
 }

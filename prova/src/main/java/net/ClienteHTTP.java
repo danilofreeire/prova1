@@ -22,26 +22,25 @@ public class ClienteHTTP {
         setLogin(usuario, senha);
     }
 
-    public void setUrl(String ur) {
-        this.url = ur;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public void setLogin(String usu, String sen) throws Exception {
+    public void setLogin(String usuario, String senha) throws Exception {
         this.urlParameters =
-                "usuario=" + URLEncoder.encode(usu, "UTF-8") +
-                "&senha="   + URLEncoder.encode(sen, "UTF-8");
+                "usuario=" + URLEncoder.encode(usuario, "UTF-8") +
+                "&senha="   + URLEncoder.encode(senha, "UTF-8");
     }
 
     public String conecta() throws Exception {
+    	// Cria a conexão || Constrói a URL e abre a conexão HTTP.
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         // Método e cabeçalhos
         con.setRequestMethod("POST");
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-        // Envio (body x-www-form-urlencoded)
+        // Envio de corpo e escreve parametros(body x-www-form-urlencoded)
         con.setDoOutput(true);
         try (DataOutputStream wr = new DataOutputStream(con.getOutputStream())) {
             wr.writeBytes(urlParameters);
