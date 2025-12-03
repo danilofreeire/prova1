@@ -2,12 +2,12 @@ package domain;
 
 /**
  * Representa o resultado da chamada à API de pagamento.
- * É, na prática, o "p1" do professor (classe pessoa) organizado
+ * É, na prática, o "p1" do    (classe pessoa) organizado
  * dentro de um objeto próprio.
  */
 public class PagamentoResultado {
 
-    // Equivalente ao p1 do professor
+    // Equivalente ao p1 do   
     private PessoaPagamento pessoa;
 
     public PagamentoResultado() {
@@ -25,7 +25,7 @@ public class PagamentoResultado {
         this.pessoa = pessoa;
     }
 
-    // Métodos de conveniência que espelham o que o professor usa em tela:
+    // Métodos de conveniência que espelham o que o    usa em tela:
 
     // p1.getRetmsg()
     public String getMensagem() {

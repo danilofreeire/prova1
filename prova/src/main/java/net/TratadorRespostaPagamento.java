@@ -6,14 +6,14 @@ import domain.PagamentoResultado;
 import org.json.JSONObject;
 
 /**
- * Equivalente ao trataJSON do professor.
+ * Equivalente ao trataJSON do     .
  * Recebe a String JSON, extrai os campos e monta a PessoaPagamento,
  * depois embrulha em um PagamentoResultado.
  */
 public class TratadorRespostaPagamento {
 
     public PagamentoResultado parse(String json) {
-        // Mesmo comportamento do trataJSON do professor
+        // Mesmo comportamento do trataJSON do     
         JSONObject myObj = new JSONObject(json);
 
         String id               = myObj.optString("id", null);

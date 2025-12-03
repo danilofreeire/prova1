@@ -1,11 +1,11 @@
 package domain;
 /**
  * Representa os dados que serão enviados para a API de pagamento,
- * baseado nos parâmetros que o professor passa para pagamentoHTTP.
+ * baseado nos parâmetros que o   passa para pagamentoHTTP.
  */
 public class PagamentoRequisicao {
 
-    // Equivalentes aos campos da Tela01 do professor
+    // Equivalentes aos campos da Tela01 do  
     private String nome;        // caixa1
     private String fone;        // caixa2 (apesar de não ser passado no construtor original, existe na pessoa)
     private String cpf;         // caixa4

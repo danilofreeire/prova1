@@ -26,7 +26,7 @@ public class ListaDePessoasPagamento {
         lista.set(indice, p);
     }
 
-    // Retorna um array de Strings formatadas (igual ao professor)
+    // Retorna um array de Strings formatadas (igual ao)
     public String[] retornaListaFormatada() {
         String[] nomes = new String[lista.size()];
         int cont = 0;

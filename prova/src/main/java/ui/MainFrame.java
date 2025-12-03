@@ -7,6 +7,10 @@ import ui.aluno.AlunoFormFrame;
 import ui.aluno.AlunoListFrame;
 import ui.PagamentoFrame;   // 👈 importa a tela de pagamento
 
+import ui.pagamento.PagamentoFrame;
+import ui.pagamento.PagamentoListFrame;
+
+
 public class MainFrame extends JFrame {
 
     public MainFrame() {
@@ -33,14 +37,21 @@ public class MainFrame extends JFrame {
 
         mb.add(mCadastrar);
 
-        // MENU PAGAMENTOS (novo)
-        JMenu mPagamentos = new JMenu("Pagamentos");
+        // MENU PAGAMENTOS
+JMenu mPagamentos = new JMenu("Pagamentos");
 
-        JMenuItem miNovoPagamento = new JMenuItem("Novo Pagamento");
-        miNovoPagamento.addActionListener(e -> new PagamentoFrame().setVisible(true));
-        mPagamentos.add(miNovoPagamento);
+// Novo pagamento (já existia)
+JMenuItem miNovoPagamento = new JMenuItem("Novo Pagamento");
+miNovoPagamento.addActionListener(e -> new PagamentoFrame().setVisible(true));
+mPagamentos.add(miNovoPagamento);
 
-        mb.add(mPagamentos);
+// Listar pagamentos (NOVO)
+JMenuItem miListarPagamentos = new JMenuItem("Listar Pagamentos");
+miListarPagamentos.addActionListener(e -> new PagamentoListFrame().setVisible(true));
+mPagamentos.add(miListarPagamentos);
+
+mb.add(mPagamentos);
+
 
         return mb;
     }

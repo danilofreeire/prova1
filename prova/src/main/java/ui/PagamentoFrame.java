@@ -77,6 +77,12 @@ public class PagamentoFrame extends JFrame {
             tNome.requestFocus();
             return false;
         }
+        if (nome.length() < 4) {
+            JOptionPane.showMessageDialog(this,
+                    "O nome deve ter pelo menos 4 letras.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
 
         if (cpf.isEmpty() || !cpf.matches("\\d{11}")) { // 11 dígitos numéricos
             JOptionPane.showMessageDialog(this, "CPF deve ter 11 números.", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -106,7 +112,7 @@ public class PagamentoFrame extends JFrame {
     
 
     private void configurarListeners() {
-        // Emitir = chamar API do professor via PagamentoService
+        // Emitir = chamar API do      via PagamentoService
         bEmitir.addActionListener(e -> emitirPagamento());
 
         // Limpar = zerar campos

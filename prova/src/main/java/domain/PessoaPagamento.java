@@ -1,26 +1,34 @@
 package domain;
 
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
 public class PessoaPagamento {
 
-	private String nome;
+    // ID da tabela no banco
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
+
+    // Campos que já usamos na integração com a API
+    private String nome;
     private String fone;
     private String cpf;
-    private String id;      // id da transação / pagamento
-    private String modo;    // PIX, BOLETO, CARTAO
-    private String retmsg;  // mensagem de retorno da API
+
+    // este "id" é o ID/txid/payload que vem da API (usado no QRCode)
+    private String id;
+    private String modo;
+    private String retmsg;
     private String valor;
 
+    private LocalDateTime dataHora; // quando o pagamento foi feito
+
     public PessoaPagamento() {
-        // construtor vazio: útil para quando formos preencher por partes
     }
 
-    public PessoaPagamento(String nome,
-                           String fone,
-                           String cpf,
-                           String id,
-                           String modo,
-                           String retmsg,
-                           String valor) {
+    public PessoaPagamento(String nome, String fone, String cpf,
+                           String id, String modo, String retmsg, String valor) {
         this.nome = nome;
         this.fone = fone;
         this.cpf = cpf;
@@ -30,23 +38,13 @@ public class PessoaPagamento {
         this.valor = valor;
     }
 
-    public void atualizar(String nome,
-                          String fone,
-                          String cpf,
-                          String id,
-                          String modo,
-                          String retmsg,
-                          String valor) {
-        this.nome = nome;
-        this.fone = fone;
-        this.cpf = cpf;
-        this.id = id;
-        this.modo = modo;
-        this.retmsg = retmsg;
-        this.valor = valor;
+    public Long getCodigo() {
+        return codigo;
     }
 
-    // getters e setters
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;
@@ -72,6 +70,7 @@ public class PessoaPagamento {
         this.cpf = cpf;
     }
 
+    // continua igual: este id é o id do pagamento na API
     public String getId() {
         return id;
     }
@@ -104,16 +103,11 @@ public class PessoaPagamento {
         this.valor = valor;
     }
 
-    @Override
-    public String toString() {
-        return "PessoaPagamento{" +
-                "nome='" + nome + '\'' +
-                ", fone='" + fone + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", id='" + id + '\'' +
-                ", modo='" + modo + '\'' +
-                ", retmsg='" + retmsg + '\'' +
-                ", valor='" + valor + '\'' +
-                '}';
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 }

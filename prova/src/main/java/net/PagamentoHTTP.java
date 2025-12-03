@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 import domain.PagamentoRequisicao;
 
 /**
- * Versão integrada do pagamentoHTTP do professor.
+ * Versão integrada do pagamentoHTTP do     .
  * Faz a mesma coisa, mas usando PagamentoRequisicao.
  */
 public class PagamentoHTTP {
@@ -23,7 +23,7 @@ public class PagamentoHTTP {
     }
 
     /**
-     * Monta os parâmetros no mesmo formato que o professor usa:
+     * Monta os parâmetros no mesmo formato que o      usa:
      * nome, cpf, ncartao, valor, tipopag (x-www-form-urlencoded).
      */
     private void montarParametros(PagamentoRequisicao req) throws Exception {
@@ -37,7 +37,7 @@ public class PagamentoHTTP {
 
     /**
      * Envia a requisição para a API e devolve a resposta como String (JSON),
-     * exatamente como o método conecta() do professor.
+     * exatamente como o método conecta() do     .
      */
     public String enviar(PagamentoRequisicao requisicao) throws Exception {
         montarParametros(requisicao);
@@ -45,7 +45,7 @@ public class PagamentoHTTP {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-        // Mesmo método e cabeçalhos do professor
+        // Mesmo método e cabeçalhos do     
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
@@ -70,6 +70,10 @@ public class PagamentoHTTP {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
+             // AQUI — LOGA O JSON RECEBIDO
+    System.out.println("===== JSON BRUTO DA API =====");
+    System.out.println(response.toString());
+    System.out.println("================================");
 
             return response.toString(); // JSON em String
         }

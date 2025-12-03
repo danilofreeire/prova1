@@ -17,7 +17,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 
 /**
- * Versão integrada do QRCodeGenerator do professor.
+ * Versão integrada do QRCodeGenerator do     .
  * Gera sempre um arquivo "QRCodePix.png" na pasta do projeto,
  * a partir de um payload (no nosso caso, o id retornado pela API).
  */
@@ -46,11 +46,11 @@ public class QRCodeGenerator {
 
     /**
      * Gera um QRCode a partir do ID (payload) e salva como "QRCodePix.png".
-     * Mesmo efeito visual do código do professor.
+     * Mesmo efeito visual do código do     .
      */
     public void gerarQRCode(String id) {
         try {
-            String pixPayload = id; // professor também usa o id direto
+            String pixPayload = id; //      também usa o id direto
 
             BufferedImage qrCodeImage = generateQRCodeImage(pixPayload, 300, 300);
 
